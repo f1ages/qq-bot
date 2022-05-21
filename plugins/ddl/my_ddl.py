@@ -18,9 +18,15 @@ def main(data):
 def del_ddl(data):
     id=str(data['message'][8:])
     try:
-        sql.del_ddl_by_id(id)
-        cron_control.del_(id)
-        api.reply_msg(data,'success')
+        res=sql.get_ddl_by_id(id)
+        if res == False:
+            api.reply_msg(data,'err , no such ddl')
+        elif str(res[7]) != str(data['sender']['user_id']):
+            api.reply_msg(data,'this is not your ddl!')
+        else:
+            sql.del_ddl_by_id(id)
+            cron_control.del_(id)
+            api.reply_msg(data,'success')
     except:
         api.reply_msg(data,'err')
         return False
