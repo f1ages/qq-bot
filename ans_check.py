@@ -6,6 +6,7 @@ import plugins.xcx as xcx
 import plugins.set_moudle_flag as set_moudle_flag
 import plugins.ddl.ddl_adder as ddl_adder
 import plugins.ddl.my_ddl as my_ddl
+import plugins.ddl.ddl_help as ddl_help
 
 def main(data):
     if(data['post_type']=='message'):
@@ -38,6 +39,11 @@ def main(data):
                     if ddl_check()==1:
                         my_ddl.del_ddl(data)
 
+                elif str(data['message'])=='?ddl help' or str(data['message'])=='？ddl help':
+                    if ddl_check()==1:
+                        ddl_help.main(data)
+
+
                 return
 
             elif str(data['message_type'])=='private':#私聊
@@ -67,6 +73,10 @@ def main(data):
                     if ddl_check()==1:
                         my_ddl.del_ddl(data)
 
+                elif str(data['message'])=='?ddl help' or str(data['message'])=='？ddl help':
+                    if ddl_check()==1:
+                        ddl_help.main(data)
+
                 return
         else:                                       #公开
 
@@ -91,6 +101,10 @@ def main(data):
                     if ddl_check()==1:
                         my_ddl.del_ddl(data)
 
+                elif str(data['message'])=='?ddl help' or str(data['message'])=='？ddl help':
+                    if ddl_check()==1:
+                        ddl_help.main(data)
+
                 if xcx_check()=='1':
                     xcx.main()
                 return
@@ -108,6 +122,11 @@ def main(data):
                 elif str(data['message'][:8])=='del ddl:' or str(data['message'][:8])=='del ddl：':
                     if ddl_check()==1:
                         my_ddl.del_ddl(data)
+
+                elif str(data['message'])=='?ddl help' or str(data['message'])=='？ddl help':
+                    if ddl_check()==1:
+                        ddl_help.main(data)
+
                 return
 
 def price_check():
