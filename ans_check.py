@@ -7,6 +7,7 @@ import plugins.set_moudle_flag as set_moudle_flag
 import plugins.ddl.ddl_adder as ddl_adder
 import plugins.ddl.my_ddl as my_ddl
 import plugins.ddl.ddl_help as ddl_help
+import plugins.ark as ark
 
 def main(data):
     if(data['post_type']=='message'):
@@ -43,6 +44,9 @@ def main(data):
                     if ddl_check()==1:
                         ddl_help.main(data)
 
+                elif str(data['message'])=='?ark' or str(data['message'])=='？ark':
+                    ark.main(data)
+
 
                 return
 
@@ -77,6 +81,10 @@ def main(data):
                     if ddl_check()==1:
                         ddl_help.main(data)
 
+                elif str(data['message'])=='?ark' or str(data['message'])=='？ark':
+                    #print(111)
+                    ark.main(data)
+
                 return
         else:                                       #公开
 
@@ -105,6 +113,9 @@ def main(data):
                     if ddl_check()==1:
                         ddl_help.main(data)
 
+                elif str(data['message'])=='?ark' or str(data['message'])=='？ark':
+                    ark.main(data)
+
                 if xcx_check()=='1':
                     xcx.main()
                 return
@@ -126,6 +137,9 @@ def main(data):
                 elif str(data['message'])=='?ddl help' or str(data['message'])=='？ddl help':
                     if ddl_check()==1:
                         ddl_help.main(data)
+
+                elif str(data['message'])=='?ark' or str(data['message'])=='？ark':
+                    ark.main(data)
 
                 return
 
